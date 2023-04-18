@@ -13,5 +13,14 @@
   <% @ingredients.each do |ingredient| %>
     <p> <%= ingredient.name %>
   <% end %>  
-
 </div>
+
+ <div id="add-ingredient">
+    <h2>Add Ingredient</h2>
+    <%= form_with url: "/dish/#{@dish.id}", method: :patch, local: true do |form| %>
+      <%= form.hidden_field :dish_id, value: @dish.id %>
+      <%= form.label :ingredient_id %>
+      <%= form.text_field :ingredient_id %>
+      <%= form.submit "Add Ingredient"%>
+    <% end %>
+  </div>

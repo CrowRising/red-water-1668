@@ -32,7 +32,6 @@ RSpec.describe 'dish show page' do
       visit "/dish/#{@dish_1.id}"
 
       within ('#dish-info') do
-
         expect(page).to have_content(@dish_1.total_calories)
       end
     end
@@ -41,8 +40,19 @@ RSpec.describe 'dish show page' do
       visit "/dish/#{@dish_1.id}"
 
       within ('#dish-info') do
-
         expect(page).to have_content(@chef_1.name)
+      end
+    end
+
+    it 'can add an ingredient to the dish thru a form and displays that ingredient' do
+      visit "/dish/#{@dish_1.id}"
+
+      within ('#add-ingredient') do
+        fill_in :ingredient_id, with: @ingredient_5.name
+        click_on 'Add Ingredient'
+     
+        expect(page).to have_content(@ingredient_5.name)
+      
       end
     end
   end

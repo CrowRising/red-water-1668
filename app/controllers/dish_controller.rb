@@ -4,4 +4,8 @@ class DishController < ApplicationController
     @dish = Dish.find(params[:id])
     @ingredients = @dish.ingredients
   end
+
+  def update
+    
+  end
 end
