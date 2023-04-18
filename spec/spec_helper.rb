@@ -94,3 +94,28 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def dummy_data
+
+  @chef_1 = Chef.create!(name: 'Milovitch Finney')
+  @chef_2 = Chef.create!(name: 'Brunhilde Commonworth')
+
+  @dish_1 = @chef_1.dishes.create!(name: 'pannacotta', description: 'creamy delicious goodness' )
+  @dish_2 = @chef_2.dishes.create!(name: 'frites', description: 'duck fat fries w truffle')
+
+  @ingredient_1 = Ingredient.create!(name: 'cream', calories: '80')
+  @ingredient_2 = Ingredient.create!(name: 'sugar', calories: '50')
+  @ingredient_3 = Ingredient.create!(name: 'gelatin', calories: '10')
+  @ingredient_4 = Ingredient.create!(name: 'potato', calories: '45')
+  @ingredient_5 = Ingredient.create!(name: 'duck fat', calories: '100')
+  @ingredient_6 = Ingredient.create!(name: 'truffle', calories: '5')
+
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_1)
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_2)
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_3)
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_4)
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_5)
+  @dish_ingredients_1 = DishIngredient.create!(dish: @dish_2, ingredient: @ingredient_6)
+
+
+end
