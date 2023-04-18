@@ -7,7 +7,7 @@ RSpec.describe 'dish show page' do
    end
 
     it 'displays the name and description of dish' do
-      visit "/dishes/#{dish_1.id}"
+      visit "/dishes/#{@dish_1.id}"
 
       within ('#dish-info') do
 
@@ -18,9 +18,10 @@ RSpec.describe 'dish show page' do
     end
 
     it 'displays a list of ingredients for the dish' do
-      visit "/dishes/#{dish_1.id}"
+      visit "/dishes/#{@dish_1.id}"
 
-      within ('#dish_ingredients') do-
+      within ('#dish_ingredients') do
+
         expect(page).to have_content(@ingredient_1.name)
         expect(page).to have_content(@ingredient_2.name)
         expect(page).to have_content(@ingredient_3.name)
@@ -28,7 +29,7 @@ RSpec.describe 'dish show page' do
     end
 
     it 'diplays a total calorie count for the dish' do
-      visit "/dishes/#{dish_1.id}"
+      visit "/dishes/#{@dish_1.id}"
 
       within ('#dish-info') do
 
@@ -37,7 +38,7 @@ RSpec.describe 'dish show page' do
     end
 
     it 'displays the chefs name' do
-      visit "/dishes/#{dish_1.id}"
+      visit "/dishes/#{@dish_1.id}"
 
       within ('#dish-info') do
 
@@ -45,5 +46,4 @@ RSpec.describe 'dish show page' do
       end
     end
   end
-
 end
